@@ -1,0 +1,1 @@
+- [Orval Zod parameter collisions](orval-zod-parameter-types.md) — generated operation parameter types can collide across Zod and TypeScript schema exports.

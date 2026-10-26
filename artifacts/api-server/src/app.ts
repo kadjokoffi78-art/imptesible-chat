@@ -30,5 +30,20 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/api", router);
+app.use((error: unknown, req: express.Request, res: express.Response, _next: express.NextFunction) => {
+  req.log.error({ err: error }, "API request failed");
+  if (
+    error &&
+    typeof error === "object" &&
+    "status" in error &&
+    typeof error.status === "number" &&
+    error.status >= 400 &&
+    error.status < 500
+  ) {
+    res.status(error.status).json({ error: "La demande n’a pas pu être traitée." });
+    return;
+  }
+  res.status(500).json({ error: "Le service est temporairement indisponible." });
+});
 
 export default app;

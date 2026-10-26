@@ -1,0 +1,24 @@
+kind = "mobile"
+previewPath = "/"
+title = "L’Imptébisible1.9Chat"
+description = "Application Android de messagerie en français. La première version relie l’inscription directe sans OTP, la recherche par numéro, les contacts et les conversations à un vrai serveur."
+version = "1.0.0"
+id = "artifacts/imptesible-chat"
+router = "expo-domain"
+
+[[services]]
+name = "expo"
+ensurePreviewReachable = "/status"
+paths = [ "/" ]
+localPort = 18643
+
+[services.development]
+run = "pnpm --filter @workspace/imptesible-chat run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/imptesible-chat", "run", "build" ]
+run = [ "pnpm", "--filter", "@workspace/imptesible-chat", "run", "serve" ]
+
+[services.env]
+PORT = "18643"
+BASE_PATH = "/"

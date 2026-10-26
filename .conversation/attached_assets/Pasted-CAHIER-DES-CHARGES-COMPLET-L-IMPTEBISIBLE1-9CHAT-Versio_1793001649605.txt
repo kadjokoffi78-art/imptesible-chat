@@ -1,0 +1,1084 @@
+CAHIER DES CHARGES COMPLET — L’IMPTEBISIBLE1.9CHAT
+
+Version : 1.0
+Type : Application mobile Android
+Nom : L’Imptébisible1.9Chat
+Langue : Français
+Plateforme principale : Android
+Objectif : Application de messagerie permettant à deux téléphones ou plusieurs utilisateurs de communiquer réellement via Internet
+
+---
+
+1. OBJECTIF DU PROJET
+
+Créer une véritable application mobile Android de messagerie appelée L’Imptébisible1.9Chat.
+
+L'application doit permettre à plusieurs utilisateurs possédant chacun leur compte de communiquer entre eux en temps réel.
+
+L'application doit fonctionner avec un véritable backend et une véritable base de données.
+
+Je ne veux pas d'une simple maquette, d'une démonstration ou d'une application contenant uniquement des données fictives.
+
+Les fonctions doivent être réellement connectées au serveur.
+
+L'application doit notamment permettre :
+
+- créer un compte ;
+- se connecter ;
+- rechercher un utilisateur par numéro de téléphone ;
+- ajouter des contacts ;
+- discuter avec un contact ;
+- envoyer et recevoir des messages ;
+- envoyer des photos ;
+- envoyer des vidéos ;
+- envoyer des documents ;
+- enregistrer et envoyer des messages vocaux ;
+- recevoir et lire les messages vocaux ;
+- créer des groupes ;
+- participer à des groupes ;
+- publier des statuts ;
+- effectuer des appels audio ;
+- effectuer des appels vidéo ;
+- recevoir des notifications ;
+- gérer son profil ;
+- bloquer et débloquer des utilisateurs ;
+- gérer les paramètres de l'application.
+
+---
+
+2. RÈGLE IMPORTANTE SUR L'INSCRIPTION
+
+AUCUN OTP POUR LE MOMENT
+
+Ne mets aucun système de code OTP par SMS.
+
+Ne mets pas non plus de vérification obligatoire par code envoyé par e-mail.
+
+L'inscription doit être directe.
+
+L'utilisateur doit pouvoir créer son compte avec :
+
+- Nom ou pseudo ;
+- Numéro de téléphone ;
+- Mot de passe ;
+- Confirmation du mot de passe.
+
+Exemple :
+
+Nom d'utilisateur : Koffi
+Numéro : 0545312901
+Mot de passe : ********
+Confirmation : ********
+
+Après validation, le compte est créé directement si les informations sont valides.
+
+Afficher ensuite un message de réussite et permettre à l'utilisateur d'accéder à son compte.
+
+Le numéro de téléphone doit être enregistré dans la base de données.
+
+---
+
+3. NUMÉRO DE TÉLÉPHONE
+
+Le numéro de téléphone est l'identifiant utilisé pour retrouver les utilisateurs.
+
+L'utilisateur doit pouvoir rechercher un autre utilisateur avec son numéro.
+
+Exemple :
+
+Utilisateur A possède :
+
+0545312901
+
+Utilisateur B possède :
+
+0500000000
+
+Depuis le téléphone A, l'utilisateur peut rechercher :
+
+0500000000
+
+L'application doit alors afficher le profil correspondant, si ce compte existe.
+
+L'utilisateur peut ensuite :
+
+- ajouter la personne ;
+- ouvrir une conversation ;
+- envoyer un message.
+
+La recherche doit être effectuée côté serveur.
+
+Ne jamais utiliser uniquement une liste locale fictive.
+
+---
+
+4. CRÉATION DE COMPTE
+
+Créer une page d'inscription moderne.
+
+Champs :
+
+Nom d'utilisateur
+
+Champ obligatoire.
+
+Numéro de téléphone
+
+Champ obligatoire.
+
+Prévoir la gestion des numéros ivoiriens et internationaux.
+
+Mot de passe
+
+Champ obligatoire.
+
+Le mot de passe doit être masqué.
+
+Confirmation du mot de passe
+
+Le deuxième mot de passe doit correspondre au premier.
+
+Bouton
+
+Créer un compte
+
+Après création :
+
+- enregistrer l'utilisateur ;
+- créer son profil ;
+- créer son identifiant unique ;
+- enregistrer son numéro ;
+- enregistrer son mot de passe sous forme sécurisée ;
+- connecter automatiquement l'utilisateur ou le rediriger vers la connexion.
+
+Ne jamais enregistrer un mot de passe en clair.
+
+---
+
+5. CONNEXION
+
+Créer une page de connexion.
+
+Champs :
+
+- Numéro de téléphone ;
+- Mot de passe.
+
+Bouton :
+
+Se connecter
+
+Prévoir :
+
+- gestion sécurisée de session ;
+- déconnexion ;
+- protection des pages privées ;
+- message d'erreur en cas d'identifiants incorrects ;
+- limitation des tentatives abusives.
+
+---
+
+6. ACCUEIL
+
+Après connexion, afficher la page principale de l'application.
+
+L'accueil doit présenter clairement :
+
+- profil de l'utilisateur ;
+- conversations récentes ;
+- contacts ;
+- recherche ;
+- messages non lus ;
+- statuts ;
+- accès aux appels ;
+- accès aux paramètres.
+
+Créer une interface adaptée aux téléphones Android.
+
+L'application doit être fluide et facile à utiliser.
+
+---
+
+7. RECHERCHE D'UTILISATEURS
+
+Créer une page ou une barre de recherche.
+
+La recherche doit permettre de rechercher un utilisateur par :
+
+- numéro de téléphone.
+
+Lorsque le numéro existe :
+
+Afficher :
+
+- photo de profil ;
+- nom d'utilisateur ;
+- numéro de téléphone ;
+- bouton Ajouter ;
+- bouton Message.
+
+Si aucun compte n'existe :
+
+Afficher :
+
+Aucun utilisateur trouvé.
+
+Ne jamais inventer un utilisateur.
+
+---
+
+8. CONTACTS
+
+Créer une page Contacts.
+
+Elle doit afficher les utilisateurs ajoutés.
+
+Fonctions :
+
+- ajouter un contact ;
+- supprimer un contact ;
+- rechercher un contact ;
+- ouvrir une conversation ;
+- voir le profil ;
+- bloquer un utilisateur.
+
+Les contacts doivent être sauvegardés côté serveur.
+
+---
+
+9. MESSAGERIE PRIVÉE
+
+Créer une véritable conversation entre deux utilisateurs.
+
+Fonctions :
+
+- envoyer un message texte ;
+- recevoir un message ;
+- afficher l'heure ;
+- afficher la date ;
+- afficher l'état du message ;
+- message envoyé ;
+- message reçu ;
+- message lu ;
+- supprimer un message ;
+- répondre à un message si possible ;
+- copier un message.
+
+Les messages doivent être sauvegardés dans la base de données.
+
+Ils ne doivent pas disparaître lorsque l'application est fermée.
+
+---
+
+10. TEMPS RÉEL
+
+La messagerie doit fonctionner en temps réel ou quasi temps réel.
+
+Lorsqu'un utilisateur A envoie un message à B :
+
+A → serveur → B
+
+Le téléphone B doit recevoir le nouveau message sans devoir actualiser manuellement la page.
+
+Utiliser une technologie adaptée au temps réel, par exemple WebSocket ou une solution équivalente.
+
+---
+
+11. MESSAGES VOCAUX
+
+Créer une fonction de message vocal.
+
+L'utilisateur doit pouvoir :
+
+1. maintenir ou utiliser le bouton microphone ;
+2. demander l'autorisation du microphone ;
+3. enregistrer sa voix ;
+4. arrêter l'enregistrement ;
+5. écouter le vocal avant l'envoi si possible ;
+6. envoyer le vocal ;
+7. permettre au destinataire de le recevoir ;
+8. permettre au destinataire de l'écouter.
+
+AUTORISATION MICROPHONE
+
+L'autorisation Android doit fonctionner correctement.
+
+Si elle n'est pas accordée :
+
+Afficher clairement :
+
+L'accès au microphone est nécessaire pour enregistrer un message vocal.
+
+Prévoir un accès aux paramètres Android lorsque l'autorisation a été refusée définitivement.
+
+Ne pas considérer l'autorisation comme accordée sans la vérifier réellement.
+
+---
+
+12. PHOTOS
+
+Permettre d'envoyer une photo dans une conversation.
+
+Fonctions :
+
+- ouvrir la galerie ;
+- sélectionner une photo ;
+- envoyer ;
+- afficher dans la conversation ;
+- recevoir sur l'autre téléphone ;
+- ouvrir la photo en grand.
+
+Vérifier les autorisations Android nécessaires.
+
+---
+
+13. VIDÉOS
+
+Permettre :
+
+- sélectionner une vidéo ;
+- envoyer une vidéo ;
+- afficher l'aperçu ;
+- télécharger ou lire la vidéo ;
+- recevoir la vidéo sur un autre téléphone.
+
+Limiter correctement la taille des fichiers.
+
+---
+
+14. DOCUMENTS
+
+Permettre l'envoi de documents.
+
+Formats à prévoir :
+
+- PDF ;
+- documents texte ;
+- fichiers courants.
+
+Afficher dans la conversation :
+
+- nom du fichier ;
+- type ;
+- taille ;
+- bouton pour ouvrir ou télécharger.
+
+---
+
+15. STATUTS
+
+Créer une fonction de statut.
+
+Un utilisateur peut publier :
+
+- texte ;
+- photo ;
+- vidéo.
+
+Les contacts autorisés peuvent consulter le statut.
+
+Afficher :
+
+- utilisateur ;
+- contenu ;
+- date ;
+- durée de disponibilité.
+
+Les statuts doivent pouvoir expirer automatiquement.
+
+---
+
+16. GROUPES
+
+Créer des groupes de discussion.
+
+Fonctions :
+
+- créer un groupe ;
+- donner un nom au groupe ;
+- ajouter des contacts ;
+- supprimer un membre selon les droits ;
+- envoyer des messages ;
+- envoyer des photos ;
+- envoyer des vidéos ;
+- envoyer des documents ;
+- envoyer des messages vocaux ;
+- quitter le groupe ;
+- gérer les administrateurs.
+
+Les groupes doivent être réellement enregistrés côté serveur.
+
+---
+
+17. APPELS AUDIO
+
+Prévoir de vrais appels audio entre utilisateurs.
+
+Fonctions :
+
+- appeler un contact ;
+- recevoir un appel ;
+- accepter ;
+- refuser ;
+- raccrocher ;
+- couper le microphone ;
+- réactiver le microphone.
+
+Ne pas simuler un appel avec une simple animation.
+
+Utiliser une technologie de communication temps réel adaptée.
+
+Si un serveur de signalisation ou un service externe est nécessaire, le prévoir dans l'architecture.
+
+---
+
+18. APPELS VIDÉO
+
+Prévoir les appels vidéo.
+
+Fonctions :
+
+- appel vidéo ;
+- appel entrant ;
+- accepter ;
+- refuser ;
+- raccrocher ;
+- activer/désactiver caméra ;
+- microphone ;
+- caméra avant/arrière.
+
+Demander correctement les permissions caméra et microphone.
+
+Si les appels vidéo nécessitent une infrastructure supplémentaire, l'indiquer clairement.
+
+---
+
+19. NOTIFICATIONS
+
+Prévoir des notifications pour :
+
+- nouveau message ;
+- nouveau message vocal ;
+- nouvel appel ;
+- appel manqué ;
+- nouveau groupe ;
+- ajout d'un contact ;
+- nouveau statut si nécessaire.
+
+Les notifications doivent correspondre aux événements réels du serveur.
+
+Ne pas afficher de fausses notifications.
+
+---
+
+20. PROFIL
+
+Créer une page profil.
+
+Afficher :
+
+- photo ;
+- nom d'utilisateur ;
+- numéro ;
+- statut ;
+- informations du compte.
+
+Permettre :
+
+- modifier le nom ;
+- modifier la photo ;
+- modifier certaines informations ;
+- gérer la confidentialité ;
+- gérer les utilisateurs bloqués.
+
+---
+
+21. BLOCAGE
+
+Un utilisateur doit pouvoir bloquer un autre utilisateur.
+
+Lorsqu'un utilisateur est bloqué :
+
+- il ne doit plus pouvoir envoyer normalement de messages selon les règles définies ;
+- les interactions doivent être limitées ;
+- le profil doit refléter le blocage ;
+- l'utilisateur doit pouvoir débloquer la personne.
+
+Le blocage doit être appliqué côté serveur.
+
+---
+
+22. PARAMÈTRES
+
+Créer une page paramètres contenant notamment :
+
+- compte ;
+- confidentialité ;
+- notifications ;
+- apparence ;
+- sécurité ;
+- contacts bloqués ;
+- stockage ;
+- langue ;
+- déconnexion.
+
+Prévoir un thème clair et sombre si possible.
+
+---
+
+23. BASE DE DONNÉES
+
+Utiliser une véritable base de données.
+
+Prévoir au minimum :
+
+User
+
+- id ;
+- username ;
+- phone ;
+- passwordHash ;
+- profilePhoto ;
+- createdAt ;
+- updatedAt ;
+- status.
+
+Contact
+
+- id ;
+- userId ;
+- contactUserId ;
+- createdAt.
+
+Conversation
+
+- id ;
+- type ;
+- createdAt ;
+- updatedAt.
+
+Message
+
+- id ;
+- conversationId ;
+- senderId ;
+- receiverId ;
+- content ;
+- type ;
+- mediaUrl ;
+- createdAt ;
+- readAt ;
+- status.
+
+Group
+
+- id ;
+- name ;
+- image ;
+- creatorId ;
+- createdAt.
+
+GroupMember
+
+- groupId ;
+- userId ;
+- role ;
+- joinedAt.
+
+Status
+
+- id ;
+- userId ;
+- type ;
+- content ;
+- mediaUrl ;
+- createdAt ;
+- expiresAt.
+
+Call
+
+- id ;
+- callerId ;
+- receiverId ;
+- type ;
+- status ;
+- startedAt ;
+- endedAt.
+
+Block
+
+- blockerId ;
+- blockedId ;
+- createdAt.
+
+Notification
+
+- id ;
+- userId ;
+- type ;
+- title ;
+- message ;
+- read ;
+- createdAt.
+
+---
+
+24. BACKEND
+
+Créer une API sécurisée permettant :
+
+- inscription ;
+- connexion ;
+- recherche d'utilisateur ;
+- contacts ;
+- conversations ;
+- messages ;
+- médias ;
+- groupes ;
+- statuts ;
+- appels ;
+- notifications ;
+- profil ;
+- blocage.
+
+Toutes les données sensibles doivent être contrôlées côté serveur.
+
+---
+
+25. SÉCURITÉ
+
+Obligatoire :
+
+- mots de passe hachés ;
+- sessions sécurisées ;
+- validation des données ;
+- contrôle des permissions côté serveur ;
+- protection des API ;
+- limitation des requêtes abusives ;
+- validation des fichiers ;
+- protection contre les injections ;
+- protection contre XSS ;
+- protection adaptée contre CSRF selon l'architecture ;
+- secrets uniquement dans les variables d'environnement.
+
+Ne jamais mettre de clés secrètes dans le code de l'application.
+
+---
+
+26. COMPATIBILITÉ ANDROID
+
+L'application doit être développée en priorité pour Android.
+
+Vérifier :
+
+- affichage sur petits écrans ;
+- clavier Android ;
+- permissions ;
+- microphone ;
+- caméra ;
+- galerie ;
+- fichiers ;
+- notifications ;
+- navigation ;
+- retour Android ;
+- performances.
+
+L'interface doit fonctionner correctement sur les téléphones Android modernes.
+
+---
+
+27. EXPO ET COMPATIBILITÉ
+
+Si Expo est utilisé, utiliser une version compatible avec l'environnement de développement et Expo Go disponible.
+
+Ne pas laisser le projet dans un état où :
+
+- Expo Go utilise une version ;
+- le projet utilise une autre version incompatible ;
+- l'application ne peut pas démarrer.
+
+Avant de déclarer le projet terminé :
+
+- vérifier la version Expo ;
+- vérifier React ;
+- vérifier React Native ;
+- vérifier Expo Router ;
+- vérifier les dépendances ;
+- corriger les incompatibilités ;
+- lancer réellement l'application.
+
+---
+
+28. APK ANDROID
+
+L'objectif final est d'obtenir une véritable application Android installable.
+
+Préparer le projet pour produire un APK ou un autre package Android installable.
+
+L'application finale ne doit pas dépendre d'Expo Go pour fonctionner lorsqu'elle sera compilée comme application autonome.
+
+Tester l'application compilée sur Android lorsque l'environnement de build le permet.
+
+---
+
+29. IDENTITÉ DE L'APPLICATION
+
+Nom :
+
+L’Imptébisible1.9Chat
+
+Créer une identité visuelle propre à cette application.
+
+Ne pas copier le logo ou l'identité graphique d'une autre application.
+
+L'application doit avoir :
+
+- son propre logo ;
+- ses propres couleurs ;
+- ses propres icônes ;
+- sa propre interface.
+
+IMPORTANT :
+
+Ne laisser aucun filigrane, badge, texte ou étiquette indiquant :
+
+- « créé par une IA » ;
+- « généré par une IA » ;
+- « powered by AI » ;
+- nom de l'outil utilisé pour développer l'application.
+
+L'utilisateur final doit voir uniquement l'identité de L’Imptébisible1.9Chat.
+
+---
+
+30. DONNÉES RÉELLES
+
+Ne pas utiliser de faux utilisateurs permanents.
+
+Ne pas utiliser de faux messages pour faire croire que la messagerie fonctionne.
+
+Ne pas simuler les appels.
+
+Ne pas simuler les notifications.
+
+Ne pas simuler les vocaux.
+
+Les fonctionnalités doivent utiliser le backend et la base de données.
+
+Les données de test doivent être clairement identifiées comme données de test.
+
+---
+
+31. TEST ENTRE DEUX TÉLÉPHONES
+
+Effectuer un test réel lorsque l'environnement le permet.
+
+Téléphone A
+
+Créer :
+
+Utilisateur A
+
+Numéro A
+
+Téléphone B
+
+Créer :
+
+Utilisateur B
+
+Numéro B
+
+Ensuite :
+
+Téléphone A → rechercher le numéro B → ajouter B → ouvrir la conversation → envoyer « Bonjour ».
+
+Téléphone B → recevoir « Bonjour » → répondre « Bonjour ».
+
+Téléphone A → recevoir la réponse.
+
+Tester ensuite :
+
+- photo ;
+- vidéo ;
+- document ;
+- message vocal ;
+- groupe ;
+- notification.
+
+---
+
+32. TEST DU MICROPHONE
+
+Tester obligatoirement :
+
+1. Première utilisation.
+2. Demande de permission.
+3. Autorisation acceptée.
+4. Enregistrement.
+5. Arrêt.
+6. Lecture.
+7. Envoi.
+8. Réception sur le deuxième téléphone.
+
+Tester également le cas où l'utilisateur refuse l'autorisation.
+
+---
+
+33. TESTS OBLIGATOIRES
+
+Tester :
+
+1. Inscription.
+2. Connexion.
+3. Déconnexion.
+4. Recherche par numéro.
+5. Ajout d'un contact.
+6. Suppression d'un contact.
+7. Message texte.
+8. Réception du message.
+9. Photo.
+10. Vidéo.
+11. Document.
+12. Message vocal.
+13. Permission microphone.
+14. Statut.
+15. Groupe.
+16. Appel audio.
+17. Appel vidéo.
+18. Notification.
+19. Blocage.
+20. Profil.
+21. Paramètres.
+22. Déconnexion/reconnexion.
+23. Test sur deux téléphones.
+
+Ne jamais déclarer une fonction terminée si elle n'a pas été testée.
+
+---
+
+34. GESTION DES ERREURS
+
+Les erreurs doivent être compréhensibles.
+
+Exemples :
+
+Numéro déjà utilisé
+
+« Ce numéro est déjà associé à un compte. »
+
+Utilisateur introuvable
+
+« Aucun utilisateur trouvé avec ce numéro. »
+
+Mot de passe incorrect
+
+« Numéro ou mot de passe incorrect. »
+
+Microphone refusé
+
+« L'accès au microphone est nécessaire pour enregistrer un message vocal. »
+
+Connexion Internet absente
+
+« Vérifiez votre connexion Internet et réessayez. »
+
+Ne pas afficher inutilement :
+
+« Une erreur est survenue »
+
+si une information plus précise peut être donnée.
+
+---
+
+35. ADMINISTRATION
+
+Prévoir une interface d'administration sécurisée.
+
+L'administrateur pourra éventuellement :
+
+- consulter les utilisateurs ;
+- rechercher un utilisateur ;
+- suspendre un compte ;
+- consulter les conversations selon les règles de confidentialité prévues ;
+- gérer les groupes ;
+- consulter les signalements ;
+- gérer les paramètres ;
+- consulter les journaux techniques.
+
+Ne jamais créer un mot de passe administrateur universel dans le code.
+
+---
+
+36. ARCHITECTURE
+
+L'architecture doit séparer correctement :
+
+- application mobile ;
+- API/backend ;
+- base de données ;
+- stockage des fichiers ;
+- temps réel ;
+- notifications ;
+- appels audio/vidéo.
+
+Chaque partie doit pouvoir évoluer indépendamment.
+
+---
+
+37. DÉVELOPPEMENT PROGRESSIF
+
+Développer dans cet ordre :
+
+Phase 1
+
+Créer l'application Android et l'interface.
+
+Phase 2
+
+Créer l'inscription et la connexion.
+
+Phase 3
+
+Créer la base de données.
+
+Phase 4
+
+Créer la recherche par numéro.
+
+Phase 5
+
+Créer les contacts.
+
+Phase 6
+
+Créer les conversations.
+
+Phase 7
+
+Créer les messages en temps réel.
+
+Phase 8
+
+Créer photos, vidéos et documents.
+
+Phase 9
+
+Créer les messages vocaux et les permissions Android.
+
+Phase 10
+
+Créer les groupes.
+
+Phase 11
+
+Créer les statuts.
+
+Phase 12
+
+Créer les notifications.
+
+Phase 13
+
+Créer les appels audio.
+
+Phase 14
+
+Créer les appels vidéo.
+
+Phase 15
+
+Créer le profil, les paramètres et le blocage.
+
+Phase 16
+
+Tester sur deux téléphones.
+
+Phase 17
+
+Corriger toutes les erreurs.
+
+Phase 18
+
+Préparer la génération de l'APK Android.
+
+---
+
+38. RÈGLE ABSOLUE POUR L'IA DE DÉVELOPPEMENT
+
+Ne réponds pas simplement avec une explication.
+
+Lorsque je te demande de corriger le projet, tu dois :
+
+1. inspecter les fichiers existants ;
+2. identifier le problème ;
+3. modifier réellement les fichiers nécessaires ;
+4. installer ou corriger les dépendances nécessaires ;
+5. exécuter les tests disponibles ;
+6. corriger les erreurs trouvées ;
+7. refaire les tests ;
+8. me donner le résultat.
+
+Ne dis pas :
+
+« Je ne peux pas le faire »
+
+uniquement parce qu'une étape est bloquée par une limitation de l'environnement.
+
+Fais tout ce qui est techniquement possible et indique clairement le blocage restant.
+
+Ne prétends jamais qu'une fonction fonctionne si elle n'a pas été testée.
+
+---
+
+39. LIVRABLE FINAL
+
+Je veux obtenir :
+
+- projet complet ;
+- application Android ;
+- frontend ;
+- backend ;
+- base de données ;
+- authentification ;
+- recherche par numéro ;
+- contacts ;
+- messagerie ;
+- messages vocaux ;
+- photos ;
+- vidéos ;
+- documents ;
+- groupes ;
+- statuts ;
+- notifications ;
+- appels audio ;
+- appels vidéo ;
+- profil ;
+- paramètres ;
+- blocage ;
+- système de sécurité ;
+- documentation ;
+- configuration Android ;
+- projet prêt à générer en APK.
+
+---
+
+40. RÉSULTAT ATTENDU
+
+Le résultat final doit être une véritable application de messagerie Android appelée :
+
+L’Imptébisible1.9Chat
+
+Elle doit permettre à deux personnes utilisant deux téléphones Android différents de créer leur compte sans OTP, de se retrouver grâce à leur numéro de téléphone et de communiquer réellement par Internet.
+
+Priorité absolue :
+
+INSCRIPTION → NUMÉRO → RECHERCHE → CONTACT → CONVERSATION → MESSAGE → RÉCEPTION
+
+Une fois cette chaîne parfaitement fonctionnelle, terminer les fonctions vocales, médias, groupes, statuts, notifications et appels.
+
+Ne laisse aucun élément indiquant que l'application a été créée par une IA.
+
+Ne fournis pas uniquement une maquette.
+
+Construis et teste réellement l'application.
