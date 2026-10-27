@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: imptesible-chat-api
+    runtime: node
+    buildCommand: corepack enable && pnpm install --frozen-lockfile
+    startCommand: pnpm --dir artifacts/imptesible-chat start
+    healthCheckPath: /api/health
