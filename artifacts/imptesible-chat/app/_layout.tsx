@@ -8,7 +8,9 @@ import { Stack } from 'expo-router';
 import { setAuthTokenGetter, setBaseUrl } from '@workspace/api-client-react';
 import * as SecureStore from 'expo-secure-store';
 
-setBaseUrl(`https://${process.env.EXPO_PUBLIC_DOMAIN}`);
+setBaseUrl(
+  process.env.EXPO_PUBLIC_API_URL || "http://127.0.0.1:3001"
+);
 setAuthTokenGetter(() => SecureStore.getItemAsync('imptesible-token'));
 
 const queryClient = new QueryClient();

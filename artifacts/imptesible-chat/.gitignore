@@ -1,41 +1,43 @@
-# Learn more https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
-
-# dependencies
+# Dependencies
 node_modules/
+.pnpm-store/
 
 # Expo
 .expo/
+.expo-shared/
 dist/
 web-build/
-expo-env.d.ts
 
-# Native
-ios/
-android/
-*.orig.*
-*.jks
-*.p8
-*.p12
-*.key
-*.mobileprovision
+# Android build
+android/.gradle/
+android/build/
+android/app/build/
 
-# Metro
-.metro-health-check*
+# APK / AAB
+*.apk
+*.aab
 
-# debug
-npm-debug.*
-yarn-debug.*
-yarn-error.*
+# Backups
+*.backup
+*.backup-*
+sauvegarde-finalisation-*/
+sauvegarde-fix-*/
+sauvegarde-render-*/
+sauvegarde-finale-*/
 
-# macOS
-.DS_Store
-*.pem
+# Local test data
+server/data/*.json
 
-# local env files
-.env*.local
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
 
-# typescript
-*.tsbuildinfo
-.vercel
-
+# Environment
 .env
+.env.*
+!.env.example
+
+# Temporary reports
+fix-report.txt
+api-health-result.json

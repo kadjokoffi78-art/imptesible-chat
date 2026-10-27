@@ -51,13 +51,13 @@ export default function ConversationsScreen() {
       : items.length === 0 ? <View style={styles.emptyWrap}><Notice title="La conversation commence ici" body="Ajoutez une personne avec son numéro pour ouvrir votre premier échange." action={<Pressable onPress={() => router.push('/search')} style={[styles.retry, { backgroundColor: c.primary }]}><Text style={{ color: c.primaryForeground, fontWeight: '700' }}>Chercher une personne</Text></Pressable>} /></View>
       : <FlatList
         data={items}
-        keyExtractor={(item) => item.id}
+        keyExtractor={(item) => String(item.id)}
         refreshControl={<RefreshControl refreshing={conversations.isRefetching} onRefresh={() => conversations.refetch()} tintColor={c.teal} />}
         contentContainerStyle={{ paddingBottom: 26 }}
         renderItem={({ item }) => <Pressable onPress={() => router.push(`/chat/${item.id}`)} style={({ pressed }) => [styles.conversation, { backgroundColor: pressed ? c.secondary : 'transparent', borderBottomColor: c.border }]}>
           <Avatar name={item.peer.username} size={54} />
           <View style={{ flex: 1, gap: 5 }}>
-            <View style={styles.nameLine}><Text style={[styles.peer, { color: c.foreground }]} numberOfLines={1}>{item.peer.username}</Text><Text style={[styles.time, { color: c.mutedForeground }]}>{item.lastMessageAt ? formatTime(item.lastMessageAt) : ''}</Text></View>
+            <View style={styles.nameLine}><Text style={[styles.peer, { color: c.foreground }]} numberOfLines={1}>{item.peer.username}</Text><Text style={[styles.time, { color: c.mutedForeground }]}>{item.lastMessage ? formatTime(item.lastMessage) : ''}</Text></View>
             <Text style={[styles.preview, { color: c.mutedForeground }]} numberOfLines={1}>{item.lastMessage || 'Démarrer la conversation'}</Text>
           </View>
         </Pressable>}

@@ -10,7 +10,9 @@
     "ios": {
       "supportsTablet": false
     },
-    "android": {},
+    "android": {
+      "package": "com.anonymous.imptesiblechat"
+    },
     "web": {
       "favicon": "./assets/images/icon_2.png"
     },
@@ -21,6 +23,12 @@
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "c59155c5-75ad-494a-9919-9e7e989a37a7"
+      }
     }
   }
 }

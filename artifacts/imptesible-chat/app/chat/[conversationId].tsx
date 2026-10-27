@@ -18,17 +18,22 @@ export default function ChatScreen() {
   const [content, setContent] = useState('');
   const me = useGetMe({ query: { queryKey: getGetMeQueryKey(), retry: false } });
   const conversations = useGetConversations({ query: { queryKey: getGetConversationsQueryKey(), retry: false } });
-  const messages = useGetMessages(conversationId, undefined, { query: { queryKey: getGetMessagesQueryKey(conversationId), enabled: !!conversationId, refetchInterval: 3000, retry: false } });
+  const messages = useGetMessages(conversationId, { query: { queryKey: getGetMessagesQueryKey(conversationId), enabled: !!conversationId, refetchInterval: 3000, retry: false } });
   const send = useSendMessage();
   const conversation = conversations.data?.find((item) => item.id === conversationId);
-  const ordered = useMemo(() => [...(messages.data ?? [])].sort((a, b) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()).reverse(), [messages.data]);
+  const ordered = useMemo(() => [...(messages.data ?? [])].sort((a, b) => new Date(a.createdAt ?? 0).getTime() - new Date(b.createdAt ?? 0).getTime()).reverse(), [messages.data]);
 
   async function sendMessage() {
     const text = content.trim();
     if (!text || send.isPending || !conversationId) return;
     setContent('');
     try {
-      await send.mutateAsync({ conversationId, data: { content: text } });
+      await send.mutateAsync({
+        data: {
+          conversationId,
+          content: text,
+        },
+      });
       await Promise.all([
         client.invalidateQueries({ queryKey: getGetMessagesQueryKey(conversationId) }),
         client.invalidateQueries({ queryKey: getGetConversationsQueryKey() }),
@@ -53,7 +58,7 @@ export default function ChatScreen() {
       <FlatList
         inverted
         data={ordered}
-        keyExtractor={(item) => item.id}
+        keyExtractor={(item) => String(item.id)}
         keyboardDismissMode="interactive"
         keyboardShouldPersistTaps="handled"
         contentContainerStyle={{ paddingHorizontal: 17, paddingVertical: 18, flexGrow: ordered.length === 0 ? 1 : undefined }}
@@ -67,7 +72,7 @@ export default function ChatScreen() {
           return <View style={[styles.bubbleRow, { justifyContent: mine ? 'flex-end' : 'flex-start' }]}>
             <View style={[styles.bubble, mine ? { backgroundColor: c.navy, borderBottomRightRadius: 6 } : { backgroundColor: c.card, borderColor: c.border, borderWidth: 1, borderBottomLeftRadius: 6 }]}>
               <Text style={[styles.message, { color: mine ? '#FFF8E8' : c.foreground }]}>{item.content}</Text>
-              <Text style={[styles.timestamp, { color: mine ? '#B9C8C3' : c.mutedForeground }]}>{formatTime(item.createdAt)}</Text>
+              <Text style={[styles.timestamp, { color: mine ? '#B9C8C3' : c.mutedForeground }]}>{formatTime(item.createdAt ?? '')}</Text>
             </View>
           </View>;
         }}

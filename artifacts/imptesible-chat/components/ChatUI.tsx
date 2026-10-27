@@ -20,9 +20,9 @@ export function TopBar({ title, subtitle, onBack, right }: { title: string; subt
   </View>;
 }
 
-export function Avatar({ name, size = 52 }: { name: string; size?: number }) {
+export function Avatar({ name, size = 52 }: { name?: string; size?: number }) {
   const c = useColors();
-  const initials = name.trim().split(/\s+/).slice(0, 2).map((part) => part[0]?.toUpperCase() ?? '').join('');
+  const initials = (name ?? '').trim().split(/\s+/).slice(0, 2).map((part) => part[0]?.toUpperCase() ?? '').join('');
   return <View style={{ width: size, height: size, borderRadius: size / 2, backgroundColor: c.accent, alignItems: 'center', justifyContent: 'center' }}>
     <Text style={{ color: c.accentForeground, fontSize: size * 0.31, fontWeight: '700' }}>{initials || '•'}</Text>
   </View>;
