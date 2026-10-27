@@ -41,3 +41,6 @@ pnpm-debug.log*
 # Temporary reports
 fix-report.txt
 api-health-result.json
+
+android/app/debug.keystore
+server/api.js.before-chat-1793073463196
